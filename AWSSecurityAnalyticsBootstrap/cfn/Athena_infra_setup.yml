@@ -236,7 +236,7 @@ Resources:
           - Name: eventversion
             Type: string
           - Name: useridentity
-            Type: struct<type:string,principalid:string,arn:string,accountid:string,invokedby:string,accesskeyid:string,userName:string,sessioncontext:struct<attributes:struct<mfaauthenticated:string,creationdate:string>,sessionissuer:struct<type:string,principalId:string,arn:string,accountId:string,userName:string>>>
+            Type: struct<type:string,principalid:string,arn:string,accountid:string,invokedby:string,accesskeyid:string,username:string,sessioncontext:struct<attributes:struct<mfaauthenticated:string,creationdate:string>,sessionissuer:struct<type:string,principalid:string,arn:string,accountid:string,username:string>,sourceidentity:string,useridentity:string>>>
           - Name: eventtime
             Type: string
           - Name: eventsource
@@ -284,7 +284,7 @@ Resources:
           SerdeInfo:
             Parameters:
               serialization.format : "1"
-            SerializationLibrary: com.amazon.emr.hive.serde.CloudTrailSerde
+            SerializationLibrary: org.apache.hive.hcatalog.data.JsonSerDe
         
 # Create an AWS Glue table
   ResourceTableVPCflow:
